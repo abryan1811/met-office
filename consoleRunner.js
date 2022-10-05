@@ -23,6 +23,10 @@ export default class ConsoleRunner {
     }
     
     displayForecast(forecast) {
+        // forecast.Period.forEach(period => {
+        //     console.log(`\nDate: ${period.value}`);
+        //     this.displayReps(period.Rep);
+        // });
         // TODO:3 implement Display forecast
         //const newForecast = new ForecastService(forecast);
         //newForecast.forecastFromLocationList()
