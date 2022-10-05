@@ -12,7 +12,6 @@ const sitelistService = new SitelistService(sitelistApiClient);
 const forecastApiClient = new ForecastApiClient();
 const forecastService = new ForecastService(sitelistService, forecastApiClient);
 const consoleRunner = new ConsoleRunner(forecastService);
-consoleRunner.runForever();
 
 
 const app = express();
@@ -27,6 +26,8 @@ app.get('/forecast', async (req, res) => {
             res.send(forecast);
         })
 })
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
