@@ -6,15 +6,22 @@ export default class ForecastService {
 
     getForecastForLocation(locationName) {
         return this.sitelistService.getLocations().then(
-            locations => this.forecastFromLocationList( locationName, locations)
+            locations => this.forecastFromLocationList(locationName, locations)
         )
     }
 
-    forecastFromLocationList(locationName, locationList){
+    forecastFromLocationList(locationName, locationList) {
         // TODO find locationList item with locationName, hence get the id
-        
-        // use the id we just obtained to get forecast
-        const forecast = this.forecastApiClient.getForecastForLocation(locationId);
-        return forecast;
+        let locationId = locationList.find(
+            location => location.name === locationName
+        )?.id;
+
+        if (locationId) {
+            // use the id we just obtained to get forecast
+            const forecast = this.forecastApiClient.getForecastForLocation(locationId);
+            return forecast;
+        } else {
+            return null;
+        }
     }
 }

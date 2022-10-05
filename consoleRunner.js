@@ -1,4 +1,5 @@
 import { createInterface } from 'readline';
+import ForecastService from './services/forecastService.js';
 
 const readline = createInterface({
     input: process.stdin,
@@ -23,6 +24,10 @@ export default class ConsoleRunner {
     
     displayForecast(forecast) {
         // TODO:3 implement Display forecast
+        //const newForecast = new ForecastService(forecast);
+        //newForecast.forecastFromLocationList()
+
+        console.log("Forecast: ", forecast);
     }
 
     runForever() {
